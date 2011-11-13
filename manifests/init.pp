@@ -1,13 +1,11 @@
 
 class bootstrap {
-    require bootstrap::param
+
+    require bootstrap::params
+    include bootstrap::packages
 
     file {
         "/root/.ssh":
-            ensure  => directory;
-
-        "/root/.vim":
-            require => Package["vim"],
             ensure  => directory;
 
         "/etc/motd.static":

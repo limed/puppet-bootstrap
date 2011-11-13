@@ -8,10 +8,15 @@ class bootstrap::vim {
         ensure  => installed;
     }
 
-    file { "/root/.vimrc":
-        require => Package["vim"],
-        mode    => 644,
-        source  => "${vimdir}/dot.vimrc"
+    file {
+        "/root/.vimrc":
+            require => Package["vim"],
+            mode    => 644,
+            source  => "${vimdir}/dot.vimrc";
+
+        "/root/.vim":
+            require => Package["vim"],
+            ensure  => directory;
     }
 
 }
