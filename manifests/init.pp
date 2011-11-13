@@ -3,6 +3,8 @@ class bootstrap {
 
     require bootstrap::params
     include bootstrap::packages
+    include bootstrap::vim
+    include bootstrap::ntp
 
     file {
         "/root/.ssh":

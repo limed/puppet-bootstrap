@@ -6,6 +6,6 @@ class bootstrap::resolv {
         group   => root,
         mode    => 644,
         path    => "/etc/resolv.conf",
-        content => template("puppet-bootstrap/resolv.conf.erb")
+        content => template("bootstrap/resolv.conf.erb")
     }
 }

@@ -10,4 +10,13 @@ class bootstrap::packages {
         "lsb-release":  ensure => installed;
     }
 
+    package {
+        "exim4":                ensure => absent;
+        "exim4-base":           ensure => absent;
+        "lpr":                  ensure => absent;
+        "portmap":              ensure => absent;
+        "nfs-common":           ensure => absent;
+        "nfs-kernel-server":    ensure => absent;
+    }
+
 }
