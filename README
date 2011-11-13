@@ -1,0 +1,9 @@
+** Notes **
+- This will mainly be used to bootstrap a server to a point where its sane to use
+
+** usage **
+
+* For testing *
+puppet apply --noop --verbose /etc/puppet/modules/bootstrap/tests/init.pp
+
+Remote --noop if you actually want to run it
