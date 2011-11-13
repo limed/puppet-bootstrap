@@ -1,6 +1,9 @@
 
 class bootstrap::ntp {
 
+    require bootstrap::params
+    $ntpserverlist = "${bootstrap::params::ntpserverlist}"
+
     package {
         "ntp":      ensure => installed;
         "ntpdate":  ensure => installed;

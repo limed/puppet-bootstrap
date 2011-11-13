@@ -5,6 +5,7 @@ class bootstrap {
     include bootstrap::packages
     include bootstrap::vim
     include bootstrap::ntp
+    include bootstrap::resolv
 
     file {
         "/root/.ssh":
