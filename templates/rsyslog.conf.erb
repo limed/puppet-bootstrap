@@ -1,0 +1,50 @@
+#   /etc/rsyslog.conf    Configuration file for rsyslog.
+#
+#   For more information see
+#   /usr/share/doc/rsyslog-doc/html/rsyslog_conf.html
+
+$ModLoad imuxsock
+$ModLoad imklog
+
+$ActionFileDefaultTemplate RSYSLOG_TraditionalFileFormat
+
+$FileOwner root
+$FileGroup adm
+$FileCreateMode 0640
+$DirCreateMode 0755
+
+$IncludeConfig /etc/rsyslog.d/*.conf
+
+#
+# First some standard log files.  Log by facility.
+#
+auth,authpriv.*                 /var/log/auth.log
+auth,authpriv.*                 <%= loghost %>
+daemon.*                        -<%= loghost %>
+kern.*                          -<%= loghost %>
+lpr.*                           -<%= loghost %>
+mail.*                          -<%= loghost %>
+user.*                          -<%= loghost %>
+
+local0,local1, \
+local2,local3, \
+local4,local5, \
+local6,local7.*                 <%= loghost %>
+
+#
+# Some "catch-all" log files.
+#
+*.=debug;\
+        auth,authpriv.none;\
+        news.none;mail.none     -/var/log/debug
+*.=info;*.=notice;*.=warn;\
+        auth,authpriv.none;\
+        cron,daemon.none;\
+        mail,news.none          -/var/log/messages
+mail.*                          -/var/log/mail.log
+kern.*                          -/var/log/kern.log
+
+#
+# Emergencies are sent to everybody logged in.
+#
+*.emerg                         *

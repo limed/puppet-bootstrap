@@ -1,6 +1,6 @@
 # File managed by puppet
 
-domain <%= domain %>
+domain <%= search_domain %>
 <% dns_servers.each do |ns| %>nameserver <%= ns %>
 <% end %>
 
