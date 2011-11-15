@@ -4,6 +4,7 @@
 ** usage **
 
 * For testing *
-puppet apply --noop --verbose /etc/puppet/modules/bootstrap/tests/init.pp
+puppet apply --noop --verbose --modulepath=/root/bootstrap/tests/init.pp
 
-Remote --noop if you actually want to run it
+* To run *
+puppet apply --verbose --modulepath=/root -e "include bootstrap"
