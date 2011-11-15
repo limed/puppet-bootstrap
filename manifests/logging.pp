@@ -1,5 +1,8 @@
 
-class bootstrap::syslog {
+class bootstrap::logging {
+
+    require bootstrap::params
+    $loghost = "${bootstrap::params::loghost}"
 
     package { "rsyslogd":
         ensure  => installed
@@ -7,7 +10,7 @@ class bootstrap::syslog {
 
     file { "/etc/rsyslog.conf":
         ensure  => present,
-        content => template("puppet-bootstrap/rsyslog.erb")
+        content => template("bootstrap/rsyslog.conf.erb")
     }
 
 }
