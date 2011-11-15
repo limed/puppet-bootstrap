@@ -1,9 +1,9 @@
 
 class bootstrap::resolv {
 
-    require bootstrap::params
-    $dns_servers    = "${bootstrap::params::dns_server}"
-    $search_domain  = "${bootstrap::params::search_domain}"
+    # Total cop out
+    $search_domain  = ["nws.oregonstate.edu", "nws.orst.edu", "orst.edu", "oregonstate.edu"]
+    $dns_servers    = ["128.193.0.10", "128.193.4.20"]
 
     file { "/etc/resolv.conf":
         owner   => root,
