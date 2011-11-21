@@ -1,0 +1,16 @@
+# File managed by puppet
+
+[main]
+    vardir              = /var/lib/puppet
+    logdir              = /var/log/puppet
+    rundir              = /var/run/puppet
+    ssldir              = $vardir/ssl
+    report              = true
+    reportserver        = <%= puppet_server %>
+    summarize           = true
+    usecacheonfailure   = true
+
+[agent]
+    pluginsync  = true
+    server      = <%= puppet_server %>
+
